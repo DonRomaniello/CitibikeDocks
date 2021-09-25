@@ -1,2 +1,2 @@
 # CitibikeDocks
-Tracking Citibike dock availability in NYC.
+Tracking Citibike data in NYC.
