@@ -22,3 +22,11 @@ The second source is the live JSON feed of the entire system. This includes info
 
 # Data Collection
 
+Since the monthly reports only really need to be collated once, the Jupyter notebook TripData.ipnyb in the root directory of this repository is all you need to build your own dataset of trips spanning years. 
+
+[Here is the link for a ready-to-run Colab Notebook version.](https://colab.research.google.com/github/DonRomaniello/CitibikeDocks/blob/master/TripData.ipynb)
+
+A small AWS EC2 Instance running the scripts in the Scraping directory has been polling the JSON feed of the CitiBike system every 60 seconds for over a year.
+
+
+
