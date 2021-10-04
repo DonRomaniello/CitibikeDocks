@@ -28,5 +28,8 @@ Since the monthly reports only really need to be collated once, the Jupyter note
 
 A small AWS EC2 Instance running the scripts in the Scraping directory has been polling the JSON feed of the CitiBike system every 60 seconds for over a year.
 
+# Preliminary Analysis
+![One Week of Docks Data]
+(https://raw.githubusercontent.com/DonRomaniello/CitibikeDocks/master/Graphs/17012020.png)
 
-
+This graph represents one week of dock availability in early 2020. Even with hundreds of stations represented, some patterns of activity emerge. Notice the patches of white peaking through when the change in dock availability tapers off overnight. This is due to reduced ridership at night, meaning the stations are not experiencing as much change in availability. Thus, the lines representing the amount of available docks will be relatively straight instead of tangled and crossed.
