@@ -65,7 +65,7 @@ files_by_month = [x for x in sorted(filter(os.path.isfile,
                                           os.listdir('.')),
                                     key=os.path.getmtime) if x[-2:] == "xz"]
 
-hour = tarfile.open(directory + '/' + files_by_month[0])
+hour = tarfile.open('./' + files_by_month[0])
 hour_list = hour.getnames()
 
 minute_json = json.load(hour.extractfile(hour_list[0]))
@@ -98,7 +98,7 @@ while minute < len(hour_list):
         
 
 for hour_xz in files_by_month[1:]:
-  hour = tarfile.open(directory + '/' + hour_xz)
+  hour = tarfile.open('./' + hour_xz)
   hour_list = hour.getnames()
 
   minute=0
@@ -124,6 +124,6 @@ print(stopwatch_end - stopwatch_start)
 
 stations.to_csv(('./' + os.getcwd().split('/')[-1] + 'csv.gzip'))
 
-save_test = pd.read_csv('/Users/donromaniello/Google Drive/Citibike/Processed/Jan-2020.csv.gzip')
+save_test = pd.read_csv(('./' + os.getcwd().split('/')[-1] + 'csv.gzip'))
 
 print(save_test.head())
