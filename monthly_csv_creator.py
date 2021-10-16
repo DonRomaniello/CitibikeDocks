@@ -183,7 +183,7 @@ stopwatch_end = time.time()
 print((stopwatch_end - stopwatch_start), 
       " seconds, or ",
       ((stopwatch_end - stopwatch_start)/60),
-      " minutes elapsed."
+      " minutes elapsed.")
 
 # Save, and brag about it.
 stations_big.to_csv(('./' + os.getcwd().split('/')[-1] + '.csv.gzip'))
