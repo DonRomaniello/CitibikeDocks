@@ -39,7 +39,7 @@ while directory_prompt_selection != 'w':
   print("u", "Navigate up one level.")
   directory_prompt_selection = input("Choose an option:")
   print("\n")
-  
+
   if directory_prompt_selection == 'c':
     directory_prompt_selection = input('Provide either the relative or full path name of the directory')
     os.chdir(directory_prompt_selection)
@@ -117,16 +117,19 @@ while minute < len(hour_list):
               .sort_index()[timestamp])
 
     if stations_tick.index.equals(stations_tock.index):
-      stations_tick.insert((stations_tick.shape[1]), timestamp, stations_tock)
+      try:
+        stations_tick.insert((stations_tick.shape[1]), timestamp, stations_tock)
+      except ValueError:
+        minute+=1
     else:
       stations_tick = pd.concat([stations_tick,stations_tock],
                             join='outer',
                             axis=1)
 
     minute+=1
-  except json.JSONDecodeError:
+  except:
     minute+=1
-    print(stations_tick.shape)    
+    print(stations_tick.shape)
 
 print(time.time() - stopwatch_hour)
 stopwatch_hour = time.time()
@@ -138,7 +141,7 @@ for hour_xz in files_by_month[1:]:
   hour_list = hour.getnames()
   minute=0
 
-  print(stations_tick.shape)    
+  print(stations_tick.shape)
   print(time.time() - stopwatch_hour)
   stopwatch_hour = time.time()
 
@@ -180,7 +183,7 @@ for hour_xz in files_by_month[1:]:
 # Finally, print how long this whole thing took.
 
 stopwatch_end = time.time()
-print((stopwatch_end - stopwatch_start), 
+print((stopwatch_end - stopwatch_start),
       " seconds, or ",
       ((stopwatch_end - stopwatch_start)/60),
       " minutes elapsed.")
